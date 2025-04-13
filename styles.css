@@ -10,11 +10,11 @@ body {
 /* Set the background for all the pages */
 
 body.page-start {
-  background-image: url('../assets/background/bg_start.png');
+  background-image: url('assets/background/bg_start.png');
 }
 
 body.page-select {
-  background-image: url('../assets/background/character_page_bg.png');
+  background-image: url('assets/background/character_page_bg.png');
 }
 
 body.page-dressup {
