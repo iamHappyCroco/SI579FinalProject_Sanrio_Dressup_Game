@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ✅ Restore background image
+  // Restore background image
   const savedBg = localStorage.getItem("mirror-background");
   if (savedBg) {
     const bg = document.getElementById("mirror-bg");
     if (bg) bg.src = savedBg;
   }
 
-  // ✅ Load selected base character
+  // Load selected base character
   const characterData = JSON.parse(localStorage.getItem("selectedCharacter"));
   if (characterData) {
     document.getElementById("base-character").src = characterData.img;
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
   };
 
-  // ✅ Generate accessory buttons
+  // Generate accessory buttons
   for (const type in accessories) {
     const container = document.getElementById(`${type}-container`);
     accessories[type].forEach((imgPath) => {
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(removeBtn);
   }
 
-  // ✅ Update accessory layer
+  // Update accessory layer
   window.changeDecoration = function (type, src) {
     const layerId = idMap[type];
     const layer = document.getElementById(layerId);
@@ -74,18 +74,24 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem(`${type}-accessory`, src);
   };
 
-  // ✅ Restore saved positions + enable dragging
+  // Restore saved positions + enable dragging
   for (const type in idMap) {
     const layer = document.getElementById(idMap[type]);
+    const savedSrc = localStorage.getItem(`${type}-accessory`);
+    if (savedSrc) {
+      layer.src = savedSrc;
+    }
     const savedPosition = JSON.parse(localStorage.getItem(`${type}-position`));
     if (savedPosition) {
       layer.style.left = savedPosition.left;
       layer.style.top = savedPosition.top;
     }
+  
     makeDraggable(layer, type);
   }
+  
 
-  // ✅ Drag-and-drop logic with boundary limits
+  // Drag-and-drop logic with boundary limits
   function makeDraggable(element, type) {
     let isDragging = false;
     let offsetX = 0;
@@ -135,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ✅ Change background and save to localStorage
+// Change background and save to localStorage
 window.setMirrorBackground = function (src) {
   const bg = document.getElementById("mirror-bg");
   if (bg) {
@@ -144,7 +150,7 @@ window.setMirrorBackground = function (src) {
   }
 };
 
-// ✅ Save snapshot as PNG
+// Save snapshot as PNG
 window.saveSnapshot = function () {
   const target = document.querySelector(".mirror-frame");
   if (!target) return;

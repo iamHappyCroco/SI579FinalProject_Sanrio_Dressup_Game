@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   
-    // star sparkle effect when mouse move
+    // Star sparkle effect when mouse move
     document.addEventListener("mousemove", (e) => {
       const sparkle = document.createElement("img");
       sparkle.src = "assets/sparkle.png"; 
@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+  //Characters floating animation effect
   document.addEventListener("DOMContentLoaded", () => {
 
     const floatingLeft = document.querySelector(".floating-left");
@@ -50,13 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
   
     function animateFloating() {
+      //Animation Logic
       floatData.forEach((data) => {
         data.angle += data.speed;
         const offset = Math.sin(data.angle) * data.amplitude;
         data.el.style.top = offset + "px";
       });
+      // Recursive loop
       requestAnimationFrame(animateFloating);
     }
   
     animateFloating();
+
   } );
