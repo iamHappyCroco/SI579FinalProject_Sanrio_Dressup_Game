@@ -6,7 +6,7 @@ This web-based project allows users to:
 - Select a cute cartoon character
 - Customize their look with drag-and-drop accessories
 - Choose a background scene
-- Download a snapshot of their styled character 💖
+- Download a snapshot of their styled character
 
 ![Preview](assets/preview/1.png) 
 
