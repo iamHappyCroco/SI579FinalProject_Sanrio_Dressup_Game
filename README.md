@@ -8,9 +8,7 @@ This web-based project allows users to:
 - Choose a background scene
 - Download a snapshot of their styled character
 
-![Preview](preview/1.png) 
-![Preview](preview/2.png) 
-![Preview](preview/3.png) 
+![Preview](preview/display.png) 
 
 
 ## Features
