@@ -84,7 +84,7 @@ for (const type in accessories) {
  * @param {string} type
  * @param {string} src
  */
-const changeDecoration = function (type, src) {
+const changeDecoration = (type, src) => {
   const layerId = idMap[type];
   const layer = document.getElementById(layerId);
   layer.src = src;
@@ -184,7 +184,7 @@ function makeDraggable(element, type) {
  * Set the current mirror background and store it
  * @param {string} src
  */
-const setMirrorBackground = function (src) {
+const setMirrorBackground = (src) => {
   const bg = document.getElementById("mirror-bg");
   if (bg) {
     bg.src = src;
@@ -195,7 +195,7 @@ const setMirrorBackground = function (src) {
 /**
  * Capture the current styled mirror and download as PNG
  */
-const saveSnapshot = function () {
+const saveSnapshot = () => {
   const target = document.querySelector(".mirror-frame");
   if (!target) return;
 
